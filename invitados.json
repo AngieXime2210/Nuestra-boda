@@ -1,0 +1,22 @@
+[
+  {
+    "id": "AF001",
+    "nombre": "CESAR ROMERO",
+    "cupos": 1
+  },
+  {
+    "id": "AF002",
+    "nombre": "MILENA TORRES",
+    "cupos": 1
+  },
+  {
+    "id": "AF003",
+    "nombre": "KAREN ROMERO",
+    "cupos": 1
+  },
+  {
+    "id": "AF004",
+    "nombre": "FELIPE CARDENAS",
+    "cupos": 1
+  }
+]
