@@ -189,12 +189,13 @@ if (botonWhatsapp) {
 
         const nombre = document.getElementById("nombreInvitado").textContent;
 
-        const mensaje = `Hola Angie y Fredy 
+        const mensaje = `Hola Angie y Fredy.
+
 Soy ${nombre}.
 
-Con mucho cariño les confirmo mi asistencia a su boda.
+Con mucho gusto confirmo mi asistencia a su boda.
 
-¡Nos vemos el 19 de junio!`;
+Nos vemos el 19 de junio de 2027.`;
 
         const url = `https://wa.me/573214918268?text=${encodeURIComponent(mensaje)}`;
 
