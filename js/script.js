@@ -144,11 +144,16 @@ const id = params.get("id");
 
 if (id) {
 
-    fetch("invitados.json")
-        .then(response => response.json())
+    fetch("./invitados.json")
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("No se pudo cargar invitados.json");
+            }
+            return response.json();
+        })
         .then(invitados => {
 
-            const invitado = invitados.find(i => i.id === id);
+            const invitado = invitados.find(i => i.id.trim() === id.trim());
 
             if (invitado) {
 
@@ -159,11 +164,42 @@ if (id) {
 
             } else {
 
-                document.getElementById("nombreInvitado").textContent = "Invitado";
+                document.getElementById("nombreInvitado").textContent = "Invitado no encontrado";
                 document.getElementById("numeroCupos").textContent = "";
 
             }
 
+        })
+        .catch(error => {
+            console.error(error);
         });
+
+}
+//==============================
+// BOTÓN DE WHATSAPP PERSONALIZADO
+//==============================
+
+const botonWhatsapp = document.getElementById("btnWhatsapp");
+
+if (botonWhatsapp) {
+
+    botonWhatsapp.addEventListener("click", function (e) {
+
+        e.preventDefault();
+
+        const nombre = document.getElementById("nombreInvitado").textContent;
+
+        const mensaje = `Hola Angie y Fredy 💕
+Soy ${nombre}.
+
+Con mucho cariño les confirmo mi asistencia a su boda.
+
+¡Nos vemos el 19 de junio! 🤍`;
+
+        const url = `https://wa.me/573214918268?text=${encodeURIComponent(mensaje)}`;
+
+        window.open(url, "_blank");
+
+    });
 
 }
